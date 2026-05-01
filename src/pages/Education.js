@@ -32,12 +32,16 @@ const Education = () => {
       image: `${process.env.PUBLIC_URL}/certificates/databases.jpg`,
     },
     {
-      name: 'ICT Competition: Database Application Development - Champion',
+      name: '15th ICT ROADSHOW: Database Application Development - Champion',
       image: `${process.env.PUBLIC_URL}/certificates/roadshow.jpg`,
     },
     {
       name: 'TRON 2026 Cyber Defense Exercise Qualifiers - First Runner Up',
       image: `${process.env.PUBLIC_URL}/certificates/tron.jpg`,
+    },
+    {
+      name: '16th ICT ROADSHOW: Frontend Development Certification',
+      image: `${process.env.PUBLIC_URL}/certificates/frontend.png`,
     },
   ];
 

@@ -1,11 +1,28 @@
-import React from 'react';
-import { FiGithub, FiLinkedin, FiFacebook, FiInstagram, FiMail } from 'react-icons/fi';
+import React from "react";
+import { FiFacebook, FiInstagram, FiMail, FiGithub } from "react-icons/fi";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: FiFacebook, href: 'https://www.facebook.com/ramosprinsandrei31/', label: 'Facebook' },
-    { icon: FiInstagram, href: 'https://www.instagram.com/itz_prinsipe', label: 'Instagram' },
-    { icon: FiMail, href: 'mailto:princeandreyramos7@gmail.com', label: 'Email' },
+    {
+      icon: FiFacebook,
+      href: "https://www.facebook.com/ramosprinsandrei31/",
+      label: "Facebook",
+    },
+    {
+      icon: FiInstagram,
+      href: "https://www.instagram.com/itz_prinsipe",
+      label: "Instagram",
+    },
+    {
+      icon: FiGithub,
+      href: "https://github.com/PrinceRamos7",
+      label: "GitHub",
+    },
+    {
+      icon: FiMail,
+      href: "mailto:princeandreyramos7@gmail.com",
+      label: "Email",
+    },
   ];
 
   return (
@@ -31,7 +48,8 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-gray-600 dark:text-gray-400 text-sm animate-fade-in-up stagger-3">
-            © {new Date().getFullYear()} Prince Andrey A. Ramos. All rights reserved.
+            © {new Date().getFullYear()} Prince Andrey A. Ramos. All rights
+            reserved.
           </p>
         </div>
       </div>
