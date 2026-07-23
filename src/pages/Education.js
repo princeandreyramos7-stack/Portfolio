@@ -228,7 +228,7 @@ const Education = () => {
                   >
                     <img
                       src={photo}
-                      alt={`Competition photo ${index + 1}`}
+                      alt={`Competition ${index + 1}`}
                       className="w-full h-auto object-cover"
                       onError={(e) => {
                         e.target.parentElement.innerHTML = `
