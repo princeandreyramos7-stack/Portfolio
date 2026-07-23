@@ -66,44 +66,44 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-white dark:bg-dark-bg">
+    <section id="education" className="py-16 sm:py-20 bg-white dark:bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-4">Education</h2>
-        <div className="w-20 h-1 bg-primary-light mx-auto mb-12" />
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Education</h2>
+        <div className="w-20 h-1 bg-primary-light mx-auto mb-8 sm:mb-12" />
 
         <div
           ref={ref}
           className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
         >
           {/* Education */}
-          <div className="space-y-8 mb-12">
+          <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
             {education.map((edu, index) => (
               <div
                 key={index}
-                className="bg-gray-50 dark:bg-dark-card rounded-xl p-6 shadow-lg"
+                className="bg-gray-50 dark:bg-dark-card rounded-xl p-4 sm:p-6 shadow-lg"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary-light/10 rounded-lg flex items-center justify-center">
-                    <FiAward className="text-primary-light" size={24} />
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-primary-light/10 rounded-lg flex items-center justify-center">
+                    <FiAward className="text-primary-light" size={20} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-1">{edu.degree}</h3>
-                    <p className="text-primary-light font-medium mb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-1">{edu.degree}</h3>
+                    <p className="text-sm sm:text-base text-primary-light font-medium mb-2">
                       {edu.institution}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                    <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3 sm:mb-4">
                       {edu.period}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
                       {edu.description}
                     </p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5 sm:space-y-2">
                       {edu.achievements.map((achievement, i) => (
                         <li
                           key={i}
-                          className="flex items-start space-x-2 text-gray-600 dark:text-gray-400"
+                          className="flex items-start space-x-2 text-sm sm:text-base text-gray-600 dark:text-gray-400"
                         >
-                          <span className="text-primary-light mt-1">•</span>
+                          <span className="text-primary-light mt-0.5 sm:mt-1">•</span>
                           <span>{achievement}</span>
                         </li>
                       ))}
@@ -116,15 +116,15 @@ const Education = () => {
 
           {/* Certifications */}
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-center">Certifications & Awards</h3>
-            <div className="grid md:grid-cols-2 gap-6">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Certifications & Awards</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {certifications.map((cert, index) => (
                 <div
                   key={index}
                   onClick={() => setSelectedCertificate(cert)}
                   className="bg-gray-50 dark:bg-dark-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
                 >
-                  <div className="relative h-48 bg-gradient-to-br from-primary-light to-primary-dark">
+                  <div className="relative h-40 sm:h-48 bg-gradient-to-br from-primary-light to-primary-dark">
                     <img
                       src={cert.image}
                       alt={cert.name}
@@ -134,9 +134,9 @@ const Education = () => {
                       }}
                     />
                   </div>
-                  <div className="p-4 flex items-start space-x-3">
-                    <FiAward className="text-primary-light flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-900 dark:text-white font-medium">
+                  <div className="p-3 sm:p-4 flex items-start space-x-2 sm:space-x-3">
+                    <FiAward className="text-primary-light flex-shrink-0 mt-0.5 sm:mt-1" size={18} />
+                    <span className="text-sm sm:text-base text-gray-900 dark:text-white font-medium">
                       {cert.name}
                     </span>
                   </div>
@@ -152,9 +152,9 @@ const Education = () => {
           >
             {selectedCertificate && (
               <div>
-                <div className="flex items-center space-x-3 mb-6">
-                  <FiAward className="text-primary-light" size={32} />
-                  <h2 className="text-2xl font-bold">{selectedCertificate.name}</h2>
+                <div className="flex items-start space-x-2 sm:space-x-3 mb-4 sm:mb-6">
+                  <FiAward className="text-primary-light flex-shrink-0 mt-1" size={24} />
+                  <h2 className="text-xl sm:text-2xl font-bold">{selectedCertificate.name}</h2>
                 </div>
                 
                 {/* Full Certificate Image */}
@@ -180,12 +180,12 @@ const Education = () => {
                 </div>
 
                 {/* Download/View Options */}
-                <div className="mt-6 flex flex-wrap gap-4 justify-center">
+                <div className="mt-4 sm:mt-6 flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
                   <a
                     href={selectedCertificate.image}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 bg-primary-light text-white rounded-lg hover:bg-primary-dark transition-colors duration-200"
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-primary-light text-white rounded-lg hover:bg-primary-dark transition-colors duration-200 text-center"
                   >
                     View Full Size
                   </a>
@@ -196,10 +196,10 @@ const Education = () => {
                         setShowGallery(true);
                         setSelectedCertificate(null);
                       }}
-                      className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg hover:from-purple-600 hover:to-purple-800 transition-all duration-200 transform hover:scale-105"
+                      className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg hover:from-purple-600 hover:to-purple-800 transition-all duration-200 transform hover:scale-105"
                     >
-                      <FiImage size={20} />
-                      <span>View Competition Photos</span>
+                      <FiImage size={18} />
+                      <span className="whitespace-nowrap">View Competition Photos</span>
                     </button>
                   )}
                 </div>
@@ -213,13 +213,13 @@ const Education = () => {
             onClose={() => setShowGallery(false)}
           >
             <div>
-              <h2 className="text-2xl font-bold mb-6 flex items-center space-x-3">
-                <FiImage className="text-primary-light" size={28} />
+              <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center space-x-2 sm:space-x-3">
+                <FiImage className="text-primary-light flex-shrink-0" size={24} />
                 <span>Competition Photos</span>
               </h2>
               
               {/* Gallery Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {currentGallery.map((photo, index) => (
                   <div
                     key={index}

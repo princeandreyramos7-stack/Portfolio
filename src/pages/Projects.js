@@ -73,13 +73,13 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-dark-card">
+    <section id="projects" className="py-16 sm:py-20 bg-gray-50 dark:bg-dark-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-4">Projects</h2>
-        <div className="w-20 h-1 bg-primary-light mx-auto mb-12" />
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Projects</h2>
+        <div className="w-20 h-1 bg-primary-light mx-auto mb-8 sm:mb-12" />
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -99,21 +99,21 @@ const Projects = () => {
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
-                className="w-full h-64 object-cover rounded-lg mb-6"
+                className="w-full h-48 sm:h-64 object-cover rounded-lg mb-4 sm:mb-6"
               />
-              <h2 className="text-3xl font-bold mb-4">{selectedProject.title}</h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">{selectedProject.title}</h2>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 sm:mb-6">
                 {selectedProject.fullDescription}
               </p>
 
               {/* Tech Stack */}
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-3">Tech Stack</h3>
+              <div className="mb-4 sm:mb-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Tech Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.techStack.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-4 py-2 bg-primary-light/10 text-primary-light rounded-lg"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base bg-primary-light/10 text-primary-light rounded-lg"
                     >
                       {tech}
                     </span>
@@ -122,15 +122,15 @@ const Projects = () => {
               </div>
 
               {/* Links */}
-              <div className="flex space-x-4">
+              <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
                 {selectedProject.github && (
                   <a
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-6 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200"
+                    className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200"
                   >
-                    <FiGithub size={20} />
+                    <FiGithub size={18} />
                     <span>View Code</span>
                   </a>
                 )}
@@ -139,45 +139,45 @@ const Projects = () => {
                     href={selectedProject.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-6 py-3 bg-primary-light text-white rounded-lg hover:bg-primary-dark transition-colors duration-200"
+                    className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-primary-light text-white rounded-lg hover:bg-primary-dark transition-colors duration-200"
                   >
-                    <FiExternalLink size={20} />
+                    <FiExternalLink size={18} />
                     <span>Live Demo</span>
                   </a>
                 )}
                 {selectedProject.qrCode && (
                   <button
                     onClick={() => setShowQR(!showQR)}
-                    className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg hover:from-purple-600 hover:to-purple-800 transition-all duration-200 transform hover:scale-105"
+                    className="flex items-center justify-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg hover:from-purple-600 hover:to-purple-800 transition-all duration-200 transform hover:scale-105"
                   >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 3a1 1 0 00-1 1v3a1 1 0 001 1h3a1 1 0 001-1V4a1 1 0 00-1-1h-3zm1 2v1h1V5h-1z" clipRule="evenodd" />
                       <path d="M11 4a1 1 0 10-2 0v1a1 1 0 002 0V4zM10 7a1 1 0 011 1v1h2a1 1 0 110 2h-3a1 1 0 01-1-1V8a1 1 0 011-1zM16 9a1 1 0 100 2 1 1 0 000-2zM9 13a1 1 0 011-1h1a1 1 0 110 2v2a1 1 0 11-2 0v-3zM7 11a1 1 0 100-2H4a1 1 0 100 2h3zM17 13a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM16 17a1 1 0 100-2h-3a1 1 0 100 2h3z" />
                     </svg>
-                    <span>{showQR ? 'Hide QR Code' : 'Show QR Code'}</span>
+                    <span className="whitespace-nowrap">{showQR ? 'Hide QR Code' : 'Show QR Code'}</span>
                   </button>
                 )}
               </div>
 
               {/* QR Code Display */}
               {selectedProject.qrCode && showQR && (
-                <div className="mt-6 p-6 bg-gray-50 dark:bg-dark-hover rounded-lg text-center animate-slide-down">
-                  <h4 className="text-lg font-semibold mb-4">Scan to Visit App</h4>
-                  <div className="inline-block p-4 bg-white rounded-lg shadow-lg">
+                <div className="mt-4 sm:mt-6 p-4 sm:p-6 bg-gray-50 dark:bg-dark-hover rounded-lg text-center animate-slide-down">
+                  <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Scan to Visit App</h4>
+                  <div className="inline-block p-3 sm:p-4 bg-white rounded-lg shadow-lg">
                     <img
                       src={selectedProject.qrCode}
                       alt="QR Code"
-                      className="w-64 h-64 mx-auto"
+                      className="w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto"
                       onError={(e) => {
                         e.target.parentElement.innerHTML = `
-                          <div class="w-64 h-64 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg">
-                            <p class="text-gray-500 dark:text-gray-400">QR Code not available</p>
+                          <div class="w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg">
+                            <p class="text-sm text-gray-500 dark:text-gray-400 px-4">QR Code not available</p>
                           </div>
                         `;
                       }}
                     />
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-3 sm:mt-4">
                     Scan with your mobile device to visit the app
                   </p>
                 </div>

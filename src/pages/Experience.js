@@ -32,10 +32,10 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-dark-card">
+    <section id="experience" className="py-16 sm:py-20 bg-gray-50 dark:bg-dark-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-4">Experience</h2>
-        <div className="w-20 h-1 bg-primary-light mx-auto mb-12" />
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Experience</h2>
+        <div className="w-20 h-1 bg-primary-light mx-auto mb-8 sm:mb-12" />
 
         <div
           ref={ref}
@@ -44,30 +44,30 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-dark-bg rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-dark-bg rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary-light/10 rounded-lg flex items-center justify-center">
-                  <FiBriefcase className="text-primary-light" size={24} />
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-primary-light/10 rounded-lg flex items-center justify-center">
+                  <FiBriefcase className="text-primary-light" size={20} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-1">{exp.title}</h3>
-                  <p className="text-primary-light font-medium mb-2">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-1">{exp.title}</h3>
+                  <p className="text-sm sm:text-base text-primary-light font-medium mb-2">
                     {exp.company}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3 sm:mb-4">
                     {exp.period}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
                     {exp.description}
                   </p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {exp.achievements.map((achievement, i) => (
                       <li
                         key={i}
-                        className="flex items-start space-x-2 text-gray-600 dark:text-gray-400"
+                        className="flex items-start space-x-2 text-sm sm:text-base text-gray-600 dark:text-gray-400"
                       >
-                        <span className="text-primary-light mt-1">•</span>
+                        <span className="text-primary-light mt-0.5 sm:mt-1">•</span>
                         <span>{achievement}</span>
                       </li>
                     ))}

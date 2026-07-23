@@ -20,29 +20,30 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-dark-bg">
+    <section id="skills" className="py-16 sm:py-20 bg-white dark:bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={ref}
           className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
         >
-          <h2 className="text-4xl font-bold text-center mb-4">Skills & Technologies</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Skills & Technologies</h2>
           <div className="w-20 h-1 bg-primary-light mx-auto mb-4" />
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-center text-gray-600 dark:text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
             Technologies and tools I use to bring ideas to life
           </p>
 
           {/* Skills Badges */}
-          <div className="flex flex-wrap gap-4 justify-center max-w-4xl mx-auto">
+          <div className="flex flex-wrap gap-2.5 sm:gap-3 md:gap-4 justify-center max-w-4xl mx-auto">
             {skills.map((skill, index) => (
               <span
                 key={skill.name}
-                className={`px-6 py-3 bg-gradient-to-r ${skill.color} text-white rounded-full text-base font-medium shadow-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300 cursor-pointer ${
+                className={`px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 bg-gradient-to-r ${skill.color} text-white rounded-full text-sm sm:text-base font-medium shadow-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300 cursor-pointer ${
                   isVisible ? 'animate-zoom-in' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                {skill.icon} {skill.name}
+                <span className="inline-block mr-1.5">{skill.icon}</span>
+                <span>{skill.name}</span>
               </span>
             ))}
           </div>

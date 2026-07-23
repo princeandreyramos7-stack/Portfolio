@@ -26,7 +26,7 @@ const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 animate-fade-in">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300"
@@ -38,14 +38,14 @@ const Modal = ({ isOpen, onClose, children }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-lg bg-gray-200 dark:bg-dark-hover hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 transform hover:scale-110 hover:rotate-90 ripple z-20"
+          className="sticky top-2 sm:top-4 right-2 sm:right-4 float-right p-1.5 sm:p-2 rounded-lg bg-gray-200 dark:bg-dark-hover hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 transform hover:scale-110 hover:rotate-90 ripple z-20"
           aria-label="Close modal"
         >
-          <FiX size={24} />
+          <FiX size={20} className="sm:w-6 sm:h-6" />
         </button>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-6 md:p-8 clear-both">
           {children}
         </div>
       </div>

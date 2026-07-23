@@ -17,23 +17,23 @@ const Home = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Main Content */}
-        <div className="space-y-6">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up">
+        <div className="space-y-4 sm:space-y-6">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 animate-fade-in-up px-2">
             Hi, I'm{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-blue-500 to-purple-600 animate-gradient gradient-animate">
               Prince Andrey A. Ramos
             </span>
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto animate-fade-in-up stagger-1">
+          <p className="text-lg xs:text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 max-w-3xl mx-auto animate-fade-in-up stagger-1 px-4">
             Student | Web Developer
           </p>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in-up stagger-2">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto animate-fade-in-up stagger-2 px-4">
             Web developer with experience building websites for client and self projects.
             Passionate about creating functional and user-friendly web applications.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in-up stagger-3">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 animate-fade-in-up stagger-3 px-4">
             <Button onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
               View My Work
             </Button>

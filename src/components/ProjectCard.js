@@ -18,7 +18,7 @@ const ProjectCard = ({ project, onClick }) => {
       onClick={onClick}
     >
       {/* Project Image */}
-      <div className="relative h-48 overflow-hidden bg-gray-200 dark:bg-dark-hover">
+      <div className="relative h-40 sm:h-48 overflow-hidden bg-gray-200 dark:bg-dark-hover">
         <img
           src={project.image}
           alt={project.title}
@@ -36,20 +36,20 @@ const ProjectCard = ({ project, onClick }) => {
       </div>
 
       {/* Project Content */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary-light transition-colors duration-300">
+      <div className="p-4 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary-light transition-colors duration-300">
           {project.title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4 line-clamp-2">
           {project.description}
         </p>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
           {project.techStack.map((tech, index) => (
             <span
               key={index}
-              className="px-3 py-1 text-xs font-medium bg-primary-light/10 text-primary-light rounded-full transform hover:scale-110 transition-transform duration-300 cursor-pointer"
+              className="px-2 py-0.5 sm:px-3 sm:py-1 text-xs font-medium bg-primary-light/10 text-primary-light rounded-full transform hover:scale-110 transition-transform duration-300 cursor-pointer"
             >
               {tech}
             </span>
@@ -57,17 +57,17 @@ const ProjectCard = ({ project, onClick }) => {
         </div>
 
         {/* Links */}
-        <div className="flex space-x-4">
+        <div className="flex flex-wrap gap-3 sm:gap-4">
           {project.github && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center space-x-1 text-gray-600 dark:text-gray-400 hover:text-primary-light transition-all duration-300 transform hover:scale-110"
+              className="flex items-center space-x-1 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-primary-light transition-all duration-300 transform hover:scale-110"
             >
-              <FiGithub size={18} />
-              <span className="text-sm">Code</span>
+              <FiGithub size={16} className="sm:w-[18px] sm:h-[18px]" />
+              <span>Code</span>
             </a>
           )}
           {project.demo && (
@@ -76,10 +76,10 @@ const ProjectCard = ({ project, onClick }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center space-x-1 text-gray-600 dark:text-gray-400 hover:text-primary-light transition-all duration-300 transform hover:scale-110"
+              className="flex items-center space-x-1 text-sm sm:text-base text-gray-600 dark:text-gray-400 hover:text-primary-light transition-all duration-300 transform hover:scale-110"
             >
-              <FiExternalLink size={18} />
-              <span className="text-sm">Demo</span>
+              <FiExternalLink size={16} className="sm:w-[18px] sm:h-[18px]" />
+              <span>Demo</span>
             </a>
           )}
         </div>
