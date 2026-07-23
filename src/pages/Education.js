@@ -27,40 +27,40 @@ const Education = () => {
   const certifications = [
     {
       name: 'Information Technology Specialist - Device Configuration and Management',
-      image: `${process.env.PUBLIC_URL}/certificates/device-configuration.jpg`,
+      image: '/certificates/device-configuration.jpg',
     },
     {
       name: 'Information Technology Specialist - Databases',
-      image: `${process.env.PUBLIC_URL}/certificates/databases.jpg`,
+      image: '/certificates/databases.jpg',
     },
     {
       name: '15th ICT ROADSHOW: Database Application Development - Champion',
-      image: `${process.env.PUBLIC_URL}/certificates/roadshow.jpg`,
+      image: '/certificates/roadshow.jpg',
       gallery: [
-        `${process.env.PUBLIC_URL}/compe-pictures/db1.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/db2.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/db3.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/db4.jpg`,
+        '/compe-pictures/db1.jpg',
+        '/compe-pictures/db2.jpg',
+        '/compe-pictures/db3.jpg',
+        '/compe-pictures/db4.jpg',
       ],
     },
     {
       name: 'TRON 2026 Cyber Defense Exercise Qualifiers - First Runner Up',
-      image: `${process.env.PUBLIC_URL}/certificates/tron.png`,
+      image: '/certificates/tron.png',
       gallery: [
-        `${process.env.PUBLIC_URL}/compe-pictures/tron1.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/tron2.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/tron3.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/tron4.jpg`,
+        '/compe-pictures/tron1.jpg',
+        '/compe-pictures/tron2.jpg',
+        '/compe-pictures/tron3.jpg',
+        '/compe-pictures/tron4.jpg',
       ],
     },
     {
       name: '16th ICT ROADSHOW: Frontend Development Certification',
-      image: `${process.env.PUBLIC_URL}/certificates/frontend.png`,
+      image: '/certificates/frontend.png',
       gallery: [
-        `${process.env.PUBLIC_URL}/compe-pictures/frontend-programming1.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/frontend-programming2.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/frontend-programming3.jpg`,
-        `${process.env.PUBLIC_URL}/compe-pictures/frontend-programming4.jpg`,
+        '/compe-pictures/frontend-programming1.jpg',
+        '/compe-pictures/frontend-programming2.jpg',
+        '/compe-pictures/frontend-programming3.jpg',
+        '/compe-pictures/frontend-programming4.jpg',
       ],
     },
   ];
