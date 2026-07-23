@@ -12,8 +12,9 @@ const Experience = () => {
       period: '2024 - 2026',
       description: 'Participated in multiple ICT competitions, demonstrating technical skills and problem-solving abilities.',
       achievements: [
-        'Database Application Development - Champion',
-        'TRON 2026 Cyber Defense Exercise Qualifiers - First Runner Up',
+        'Database Application Development',
+        'Frontend Programming',
+        'TRON 2026 Cyber Defense Exercise Qualifiers ',
         'Competed in various web development challenges',
       ],
     },

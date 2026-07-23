@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { FiAward } from 'react-icons/fi';
+import { FiAward, FiImage } from 'react-icons/fi';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import Modal from '../components/Modal';
 
 const Education = () => {
   const [ref, isVisible] = useScrollAnimation();
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [showGallery, setShowGallery] = useState(false);
+  const [currentGallery, setCurrentGallery] = useState([]);
 
   const education = [
     {
@@ -34,14 +36,32 @@ const Education = () => {
     {
       name: '15th ICT ROADSHOW: Database Application Development - Champion',
       image: `${process.env.PUBLIC_URL}/certificates/roadshow.jpg`,
+      gallery: [
+        `${process.env.PUBLIC_URL}/compe-pictures/db1.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/db2.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/db3.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/db4.jpg`,
+      ],
     },
     {
       name: 'TRON 2026 Cyber Defense Exercise Qualifiers - First Runner Up',
-      image: `${process.env.PUBLIC_URL}/certificates/tron.jpg`,
+      image: `${process.env.PUBLIC_URL}/certificates/tron.png`,
+      gallery: [
+        `${process.env.PUBLIC_URL}/compe-pictures/tron1.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/tron2.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/tron3.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/tron4.jpg`,
+      ],
     },
     {
       name: '16th ICT ROADSHOW: Frontend Development Certification',
       image: `${process.env.PUBLIC_URL}/certificates/frontend.png`,
+      gallery: [
+        `${process.env.PUBLIC_URL}/compe-pictures/frontend-programming1.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/frontend-programming2.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/frontend-programming3.jpg`,
+        `${process.env.PUBLIC_URL}/compe-pictures/frontend-programming4.jpg`,
+      ],
     },
   ];
 
@@ -160,7 +180,7 @@ const Education = () => {
                 </div>
 
                 {/* Download/View Options */}
-                <div className="mt-6 flex justify-center">
+                <div className="mt-6 flex flex-wrap gap-4 justify-center">
                   <a
                     href={selectedCertificate.image}
                     target="_blank"
@@ -169,9 +189,64 @@ const Education = () => {
                   >
                     View Full Size
                   </a>
+                  {selectedCertificate.gallery && selectedCertificate.gallery.length > 0 && (
+                    <button
+                      onClick={() => {
+                        setCurrentGallery(selectedCertificate.gallery);
+                        setShowGallery(true);
+                        setSelectedCertificate(null);
+                      }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg hover:from-purple-600 hover:to-purple-800 transition-all duration-200 transform hover:scale-105"
+                    >
+                      <FiImage size={20} />
+                      <span>View Competition Photos</span>
+                    </button>
+                  )}
                 </div>
               </div>
             )}
+          </Modal>
+
+          {/* Gallery Modal */}
+          <Modal
+            isOpen={showGallery}
+            onClose={() => setShowGallery(false)}
+          >
+            <div>
+              <h2 className="text-2xl font-bold mb-6 flex items-center space-x-3">
+                <FiImage className="text-primary-light" size={28} />
+                <span>Competition Photos</span>
+              </h2>
+              
+              {/* Gallery Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {currentGallery.map((photo, index) => (
+                  <div
+                    key={index}
+                    className="relative bg-gray-100 dark:bg-dark-hover rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                    onClick={() => window.open(photo, '_blank')}
+                  >
+                    <img
+                      src={photo}
+                      alt={`Competition photo ${index + 1}`}
+                      className="w-full h-auto object-cover"
+                      onError={(e) => {
+                        e.target.parentElement.innerHTML = `
+                          <div class="flex items-center justify-center h-64 bg-gradient-to-br from-primary-light to-primary-dark">
+                            <div class="text-center text-white p-8">
+                              <svg class="w-16 h-16 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                              </svg>
+                              <p class="text-sm">Photo ${index + 1}</p>
+                            </div>
+                          </div>
+                        `;
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </Modal>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showQR, setShowQR] = useState(false);
 
   // Sample projects data
   const projects = [
@@ -47,6 +48,27 @@ const Projects = () => {
       github: '',
       demo: '',
       fullDescription: 'An electronic tracking and reporting system designed for ISAT to monitor and manage various processes efficiently with real-time data tracking and comprehensive reporting features.',
+    },
+    {
+      id: 5,
+      title: 'Maternal and Child Care Management System (Matcare)',
+      description: 'Healthcare management system for maternal and child care services.',
+      image: `${process.env.PUBLIC_URL}/project_pictures/matcare.png`,
+      techStack: ['MySQL', 'PHP', 'React', 'Laravel', 'Tailwind CSS', 'Bootstrap'],
+      github: '',
+      demo: '',
+      fullDescription: 'A comprehensive healthcare management system designed for maternal and child care services. Features include patient registration, medical records management, prenatal check-ups tracking, immunization scheduling, delivery and postnatal care management, and supplementation screening.',
+    },
+    {
+      id: 6,
+      title: 'ISU Studyhub',
+      description: 'Mobile study platform for university students.',
+      image: `${process.env.PUBLIC_URL}/project_pictures/studyhub.png`,
+      techStack: ['Dart', 'Flutter'],
+      github: '',
+      demo: '',
+      qrCode: `${process.env.PUBLIC_URL}/project_pictures/studyhub-qr.jpg`,
+      fullDescription: 'A mobile application designed for ISU students to facilitate collaborative learning and resource sharing. Features include study groups, course materials management, assignment tracking, and peer-to-peer communication tools.',
     },
   ];
 
@@ -123,7 +145,43 @@ const Projects = () => {
                     <span>Live Demo</span>
                   </a>
                 )}
+                {selectedProject.qrCode && (
+                  <button
+                    onClick={() => setShowQR(!showQR)}
+                    className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg hover:from-purple-600 hover:to-purple-800 transition-all duration-200 transform hover:scale-105"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 3a1 1 0 00-1 1v3a1 1 0 001 1h3a1 1 0 001-1V4a1 1 0 00-1-1h-3zm1 2v1h1V5h-1z" clipRule="evenodd" />
+                      <path d="M11 4a1 1 0 10-2 0v1a1 1 0 002 0V4zM10 7a1 1 0 011 1v1h2a1 1 0 110 2h-3a1 1 0 01-1-1V8a1 1 0 011-1zM16 9a1 1 0 100 2 1 1 0 000-2zM9 13a1 1 0 011-1h1a1 1 0 110 2v2a1 1 0 11-2 0v-3zM7 11a1 1 0 100-2H4a1 1 0 100 2h3zM17 13a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM16 17a1 1 0 100-2h-3a1 1 0 100 2h3z" />
+                    </svg>
+                    <span>{showQR ? 'Hide QR Code' : 'Show QR Code'}</span>
+                  </button>
+                )}
               </div>
+
+              {/* QR Code Display */}
+              {selectedProject.qrCode && showQR && (
+                <div className="mt-6 p-6 bg-gray-50 dark:bg-dark-hover rounded-lg text-center animate-slide-down">
+                  <h4 className="text-lg font-semibold mb-4">Scan to Visit App</h4>
+                  <div className="inline-block p-4 bg-white rounded-lg shadow-lg">
+                    <img
+                      src={selectedProject.qrCode}
+                      alt="QR Code"
+                      className="w-64 h-64 mx-auto"
+                      onError={(e) => {
+                        e.target.parentElement.innerHTML = `
+                          <div class="w-64 h-64 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg">
+                            <p class="text-gray-500 dark:text-gray-400">QR Code not available</p>
+                          </div>
+                        `;
+                      }}
+                    />
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
+                    Scan with your mobile device to visit the app
+                  </p>
+                </div>
+              )}
             </div>
           )}
         </Modal>
